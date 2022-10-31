@@ -6,7 +6,7 @@
 /*   By: frafal <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 14:42:28 by frafal            #+#    #+#             */
-/*   Updated: 2022/10/12 10:18:42 by frafal           ###   ########.fr       */
+/*   Updated: 2022/10/31 16:21:48 by frafal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # include <stdlib.h>
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 2048
+# endif
 
 /* Libc functions */
 
@@ -56,5 +59,9 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+
+/* get_next_line */
+
+char	*get_next_line(int fd);
 
 #endif
