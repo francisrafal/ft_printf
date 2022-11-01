@@ -6,7 +6,7 @@
 #    By: frafal <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/03 20:59:46 by frafal            #+#    #+#              #
-#    Updated: 2022/11/01 14:50:51 by frafal           ###   ########.fr        #
+#    Updated: 2022/11/01 16:17:47 by frafal           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ ${LIBFT}:
 			@ make -C ${LIBFTDIR}
 			@ cp ${LIBFTDIR}/${LIBFT} .
 
-.PHONY:		all clean fclean re so
+.PHONY:		all clean fclean re test
 
 all:		${NAME}
 
@@ -45,3 +45,7 @@ fclean:		clean
 			@ echo "Deleting $(NAME) library"
 
 re:			fclean all
+
+test:		all
+			@ ${CC} ${FLAGS} -o test main.c -L. -lftprintf -static
+			@ ./test

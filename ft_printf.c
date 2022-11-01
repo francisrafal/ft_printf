@@ -6,16 +6,45 @@
 /*   By: frafal <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 12:59:34 by frafal            #+#    #+#             */
-/*   Updated: 2022/11/01 15:31:33 by frafal           ###   ########.fr       */
+/*   Updated: 2022/11/01 16:15:26 by frafal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft/libft.h"
+// DELETE BEFORE SUBMISSION:
+#include <stdio.h>
 
 int	ft_printf(const char *format, ...)
 {
-	(void)format;
+	va_list	ap;
+	int		d;
+	char	c;
+	char	*s;
+	size_t	i;
+
+	va_start(ap, format);
+	i = 0;
+	while (format[i])
+	{
+		if (format[i] == 's')
+		{
+			s = va_arg(ap, char *);
+			printf("string %s\n", s);
+		}
+		else if (format[i] == 'd')
+		{
+			d = va_arg(ap, int);
+			printf("int %d\n", d);
+		}
+		else if (format[i] == 'c')
+		{
+			c = (char)va_arg(ap, int);
+			printf("char %c\n", c);
+		}
+		i++;	
+	}
+	va_end(ap);
 	// Allowed External Functions:
 	// malloc, free, write, va_start, va_arg, va_copy, va_end 
 	// Parse Variable Arguments
