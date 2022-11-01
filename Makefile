@@ -6,12 +6,13 @@
 #    By: frafal <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/03 20:59:46 by frafal            #+#    #+#              #
-#    Updated: 2022/10/31 13:40:31 by frafal           ###   ########.fr        #
+#    Updated: 2022/11/01 14:50:51 by frafal           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		:= libftprintf.a
-LIBFT		:= libft
+LIBFTDIR	:= libft
+LIBFT		:= libft.a
 CC			:= cc
 FLAGS		:= -Wall -Wextra -Werror
 SRCS		:= ft_printf.c
@@ -21,13 +22,15 @@ RM	    	:= rm -f
 %.o:		%.c
 			@ ${CC} ${FLAGS} -c $< -o $@
 
-${NAME}:	${OBJS}
+${NAME}:	${OBJS} ${LIBFT}
 			@ echo "Compilation of $(NAME) ..."
-			@ ar rcs ${NAME} ${OBJS}
+			@ ar rcs ${LIBFT} ${OBJS}
+			@ mv ${LIBFT} ${NAME}
 			@ echo "$(NAME) created"
 
-libft:
-			@ make -C ${LIBFT}
+${LIBFT}:
+			@ make -C ${LIBFTDIR}
+			@ cp ${LIBFTDIR}/${LIBFT} .
 
 .PHONY:		all clean fclean re so
 

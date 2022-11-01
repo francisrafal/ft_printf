@@ -6,14 +6,15 @@
 /*   By: frafal <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 12:59:34 by frafal            #+#    #+#             */
-/*   Updated: 2022/10/31 13:01:03 by frafal           ###   ########.fr       */
+/*   Updated: 2022/11/01 14:50:22 by frafal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft/libft.h"
 
-int	ft_printf(const char *, ...)
+int	ft_printf(const char *s, ...)
 {
+	(void)s;
 	return (0);
 }

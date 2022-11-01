@@ -6,7 +6,7 @@
 #    By: frafal <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/03 20:59:46 by frafal            #+#    #+#              #
-#    Updated: 2022/10/10 10:49:42 by frafal           ###   ########.fr        #
+#    Updated: 2022/10/31 16:21:12 by frafal           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,17 +46,18 @@ SRCS		:= ft_atoi.c \
 				ft_strtrim.c \
 				ft_substr.c \
 				ft_tolower.c \
-				ft_toupper.c
+				ft_toupper.c \
+				get_next_line.c 
 OBJS		:= ${SRCS:.c=.o}
 RM	    	:= rm -f
 
 %.o:		%.c
-			@ ${CC} ${FLAGS} -c $< -o $@
+			${CC} ${FLAGS} -c $< -o $@
 
 ${NAME}:	${OBJS}
-			@ echo "Compilation of $(NAME) ..."
-			@ ar rcs ${NAME} ${OBJS}
-			@ echo "$(NAME) created"
+			echo "Compilation of $(NAME) ..."
+			ar rcs ${NAME} ${OBJS}
+			echo "$(NAME) created"
 
 .PHONY:		all clean fclean re so
 
