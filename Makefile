@@ -6,7 +6,7 @@
 #    By: frafal <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/03 20:59:46 by frafal            #+#    #+#              #
-#    Updated: 2022/11/03 18:35:59 by frafal           ###   ########.fr        #
+#    Updated: 2022/11/03 18:58:04 by frafal           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,13 +23,13 @@ RM	    	:= rm -f
 %.o:		%.c
 			@ ${CC} ${FLAGS} ${DEBUG} -c $< -o $@
 
-${NAME}:	${OBJS} ${LIBFT}
+${NAME}:	${OBJS} ${LIBFTDIR}/${LIBFT}
 			@ echo "Compilation of $(NAME) ..."
 			ar rcs ${LIBFT} ${OBJS}
 			mv ${LIBFT} ${NAME}
 			@ echo "$(NAME) created"
 
-${LIBFT}:
+${LIBFTDIR}/${LIBFT}:
 			make -C ${LIBFTDIR}
 			cp ${LIBFTDIR}/${LIBFT} .
 
