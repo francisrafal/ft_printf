@@ -6,7 +6,7 @@
 /*   By: frafal <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 12:59:34 by frafal            #+#    #+#             */
-/*   Updated: 2022/11/03 12:20:08 by frafal           ###   ########.fr       */
+/*   Updated: 2022/11/03 12:27:42 by frafal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ static int	parse_specifier(const char specifier, va_list ap)
 		printed += print_nbr(va_arg(ap, int));
 	else if (specifier == 'c')
 		printed += print_char(va_arg(ap, int));
+	else if (specifier == '%')
+		printed += print_char('%');
 	return (printed);
 }
 
