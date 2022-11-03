@@ -6,7 +6,7 @@
 /*   By: frafal <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 11:00:50 by frafal            #+#    #+#             */
-/*   Updated: 2022/11/03 16:13:33 by frafal           ###   ########.fr       */
+/*   Updated: 2022/11/03 16:31:28 by frafal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	contains_double(char *str)
 	return (0);
 }
 
-int	ft_printnbr(unsigned long nbr, char *base, int b)
+int	ft_printnbr(unsigned long long nbr, char *base, int b)
 {
 	char	c;
 	int		printed;
@@ -60,9 +60,9 @@ int	ft_printnbr(unsigned long nbr, char *base, int b)
 	return (printed + 1);
 }
 
-int	ft_putnbr_base(unsigned int nbr, char *base)
+int	ft_putnbr_base(unsigned long long nbr, char *base)
 {
-	unsigned long	abs_val;
+	unsigned long long	abs_val;
 	int				b;
 
 	abs_val = nbr;

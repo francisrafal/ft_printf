@@ -13,6 +13,7 @@
 NAME		:= libft.a
 CC			:= cc
 FLAGS		:= -Wall -Wextra -Werror
+DEBUG		:= -g
 SRCS		:= ft_atoi.c \
 				ft_bzero.c \
 				ft_calloc.c \
@@ -52,10 +53,10 @@ OBJS		:= ${SRCS:.c=.o}
 RM	    	:= rm -f
 
 %.o:		%.c
-			${CC} ${FLAGS} -c $< -o $@
+			${CC} ${FLAGS} ${DEBUG} -c $< -o $@
 
 ${NAME}:	${OBJS}
-			echo "Compilation of $(NAME) ..."
+			@echo "Compilation of $(NAME) ..."
 			ar rcs ${NAME} ${OBJS}
 			echo "$(NAME) created"
 
@@ -64,11 +65,11 @@ ${NAME}:	${OBJS}
 all:		${NAME}
 
 clean:
-			@ ${RM} *.o
+			${RM} *.o
 			@ echo "Deleting $(NAME) objects"
 
 fclean:		clean
-			@ ${RM} ${NAME}
+			${RM} ${NAME}
 			@ echo "Deleting $(NAME) library"
 
 re:			fclean all

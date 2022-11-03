@@ -7,6 +7,7 @@ int	main(void)
 	int	val;
 
 	val = 0;
+/*
 	val = ft_printf("String: \"%s\"\n", "This is a string.");
 	printf("Return Value: %d\n", val);
 	val = ft_printf("Decimal: %d\n", 123456);
@@ -20,6 +21,13 @@ int	main(void)
 	val = ft_printf("Just one simple string.\n");
 	printf("Return Value: %d\n", val);
 	val = ft_printf("Hex: %x\n", 2147483647);
+	printf("Return Value: %d\n", val);
+	printf("/////\n");
+	*/
+	val = printf("printf Pointer: %p\n", NULL);
+	printf("Return Value: %d\n", val);
+
+	val = ft_printf("ft_printf Pointer: %p\n", NULL);
 	printf("Return Value: %d\n", val);
 	return (0);
 }

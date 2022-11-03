@@ -6,7 +6,7 @@
 /*   By: frafal <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 12:59:34 by frafal            #+#    #+#             */
-/*   Updated: 2022/11/03 16:17:35 by frafal           ###   ########.fr       */
+/*   Updated: 2022/11/03 16:30:38 by frafal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	print_str(char *str)
 
 	printed = 0;
 	if (str == NULL)
-		return(print_str("(null)"));
+		return (print_str("(null)"));
 	while (str[printed])
 	{
 		ft_putchar_fd(str[printed], 1);
@@ -84,7 +84,7 @@ static int	print_char(char c)
 	return (1);
 }
 
-static int	print_hex(unsigned int n, const char specifier)
+static int	print_hex(unsigned long long n, const char specifier)
 {
 	int		printed;
 
@@ -93,6 +93,16 @@ static int	print_hex(unsigned int n, const char specifier)
 		printed += ft_putnbr_base(n, "0123456789abcdef");
 	if (specifier == 'X')
 		printed += ft_putnbr_base(n, "0123456789ABCDEF");
+	if (specifier == 'p')
+	{
+		if (n == 0)
+		{
+			printed += print_str("(nil)");
+			return (printed);
+		}
+		printed += print_str("0x");
+		printed += ft_putnbr_base(n, "0123456789abcdef");
+	}
 	return (printed);
 }
 
@@ -113,6 +123,8 @@ static int	parse_specifier(const char specifier, va_list ap)
 		printed += print_unsigned(va_arg(ap, unsigned int));
 	else if (specifier == 'x' || specifier == 'X')
 		printed += print_hex(va_arg(ap, unsigned int), specifier);
+	else if (specifier == 'p')
+		printed += print_hex(va_arg(ap, unsigned long long), 'p');
 	else if (specifier == '%')
 		printed += print_char('%');
 	return (printed);
