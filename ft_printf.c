@@ -6,7 +6,7 @@
 /*   By: frafal <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 12:59:34 by frafal            #+#    #+#             */
-/*   Updated: 2022/11/03 12:13:24 by frafal           ###   ########.fr       */
+/*   Updated: 2022/11/03 12:20:08 by frafal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ static int	print_str(char *str)
 	int	printed;
 
 	printed = 0;
+	if (str == NULL)
+		return(print_str("(null)"));
 	while (str[printed])
 	{
 		ft_putchar_fd(str[printed], 1);
