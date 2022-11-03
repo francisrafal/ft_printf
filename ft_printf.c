@@ -6,7 +6,7 @@
 /*   By: frafal <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 12:59:34 by frafal            #+#    #+#             */
-/*   Updated: 2022/11/03 12:43:09 by frafal           ###   ########.fr       */
+/*   Updated: 2022/11/03 15:55:23 by frafal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,16 @@ static int	print_char(char c)
 	return (1);
 }
 
+static int	print_hex(unsigned int n)
+{
+	int		printed;
+
+	printed = 0;
+	ft_putnbr_base(n, "0123456789abcdef");
+	// CALC printed
+	return (printed);
+}
+
 static int	parse_specifier(const char specifier, va_list ap)
 {
 	int	printed;	
@@ -99,6 +109,8 @@ static int	parse_specifier(const char specifier, va_list ap)
 		printed += print_char(va_arg(ap, int));
 	else if (specifier == 'u')
 		printed += print_unsigned(va_arg(ap, unsigned int));
+	else if (specifier == 'x')
+		printed += print_hex(va_arg(ap, unsigned int));
 	else if (specifier == '%')
 		printed += print_char('%');
 	return (printed);
@@ -129,7 +141,6 @@ int	ft_printf(const char *format, ...)
 	// Count the Number of characters printed excluding null byte and return
 	// Error should return negative value
 	// %p The void * pointer argument has to be printed in hexadecimal format.
-	// %u Prints an unsigned decimal (base 10) number.
 	// %x Prints a number in hexadecimal (base 16) lowercase format.
 	// %X Prints a number in hexadecimal (base 16) uppercase format.
 	// %SOMETHING ELSE (Should Print the something else)

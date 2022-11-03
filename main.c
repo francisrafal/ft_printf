@@ -19,5 +19,7 @@ int	main(void)
 	printf("Return Value: %d\n", val);
 	val = ft_printf("Just one simple string.\n");
 	printf("Return Value: %d\n", val);
+	val = ft_printf("Hex: %x\n", 2147483647);
+	printf("Return Value: %d\n", val);
 	return (0);
 }
