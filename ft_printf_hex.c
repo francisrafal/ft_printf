@@ -6,7 +6,7 @@
 /*   By: frafal <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 11:00:50 by frafal            #+#    #+#             */
-/*   Updated: 2022/11/03 16:31:28 by frafal           ###   ########.fr       */
+/*   Updated: 2022/11/03 18:23:58 by frafal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static int	ft_printnbr(unsigned long long nbr, char *base, int b)
 static int	ft_putnbr_base(unsigned long long nbr, char *base)
 {
 	unsigned long long	abs_val;
-	int				b;
+	int					b;
 
 	abs_val = nbr;
 	b = ft_strlen(base);

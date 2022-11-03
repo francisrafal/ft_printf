@@ -6,14 +6,14 @@
 #    By: frafal <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/03 20:59:46 by frafal            #+#    #+#              #
-#    Updated: 2022/10/31 16:21:12 by frafal           ###   ########.fr        #
+#    Updated: 2022/11/03 18:36:09 by frafal           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		:= libft.a
 CC			:= cc
 FLAGS		:= -Wall -Wextra -Werror
-DEBUG		:= -g
+DEBUG		:=
 SRCS		:= ft_atoi.c \
 				ft_bzero.c \
 				ft_calloc.c \

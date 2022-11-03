@@ -6,7 +6,7 @@
 /*   By: frafal <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 18:12:36 by frafal            #+#    #+#             */
-/*   Updated: 2022/11/03 18:12:37 by frafal           ###   ########.fr       */
+/*   Updated: 2022/11/03 18:24:50 by frafal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	print_str(char *str)
 	return (printed);
 }
 
-char    *u_itoa(unsigned int n)
+char	*u_itoa(unsigned int n)
 {
 	char			*a;
 	int				digits;

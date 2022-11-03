@@ -6,7 +6,7 @@
 /*   By: frafal <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 12:59:34 by frafal            #+#    #+#             */
-/*   Updated: 2022/11/03 16:30:38 by frafal           ###   ########.fr       */
+/*   Updated: 2022/11/03 18:36:32 by frafal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,14 +51,9 @@ int	ft_printf(const char *format, ...)
 		if (format[i] != '%')
 			printed += print_char(format[i]);
 		if (format[i] == '%')
-			printed += parse_specifier(format[++i], ap);	
+			printed += parse_specifier(format[++i], ap);
 		i++;
 	}
 	va_end(ap);
-
-	// Error should return negative value
-	// %SOMETHING ELSE (Should Print the something else)
-	// Merge To Master Branch
-	// Remove -g Debug Flag
 	return (printed);
 }
