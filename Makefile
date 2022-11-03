@@ -16,7 +16,7 @@ LIBFT		:= libft.a
 CC			:= cc
 FLAGS		:= -Wall -Wextra -Werror
 DEBUG		:= -g
-SRCS		:= ft_printf.c ft_printf_hex.c
+SRCS		:= ft_printf.c ft_printf_hex.c ft_printf_utils.c
 OBJS		:= ${SRCS:.c=.o}
 RM	    	:= rm -f
 

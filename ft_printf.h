@@ -16,7 +16,12 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-int	ft_printf(const char *format, ...);
-int	ft_putnbr_base(unsigned long long nbr, char *base);
+int     ft_printf(const char *format, ...);
+int     print_hex(unsigned long long n, const char specifier);
+int     print_str(char *str);
+int     print_char(char c);
+int     print_nbr(int n);
+int     print_unsigned(unsigned int n);
+char    *u_itoa(unsigned int n);
 
 #endif

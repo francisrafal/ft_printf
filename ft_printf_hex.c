@@ -13,7 +13,7 @@
 #include "ft_printf.h"
 #include "libft/libft.h"
 
-int	contains_sign(char *str)
+static int	contains_sign(char *str)
 {
 	int	i;
 
@@ -27,7 +27,7 @@ int	contains_sign(char *str)
 	return (0);
 }
 
-int	contains_double(char *str)
+static int	contains_double(char *str)
 {
 	int	i;
 	int	j;
@@ -47,7 +47,7 @@ int	contains_double(char *str)
 	return (0);
 }
 
-int	ft_printnbr(unsigned long long nbr, char *base, int b)
+static int	ft_printnbr(unsigned long long nbr, char *base, int b)
 {
 	char	c;
 	int		printed;
@@ -60,7 +60,7 @@ int	ft_printnbr(unsigned long long nbr, char *base, int b)
 	return (printed + 1);
 }
 
-int	ft_putnbr_base(unsigned long long nbr, char *base)
+static int	ft_putnbr_base(unsigned long long nbr, char *base)
 {
 	unsigned long long	abs_val;
 	int				b;
@@ -80,4 +80,26 @@ int	ft_putnbr_base(unsigned long long nbr, char *base)
 		write(1, "-", 1);
 	}
 	return (ft_printnbr(abs_val, base, b));
+}
+
+int	print_hex(unsigned long long n, const char specifier)
+{
+	int		printed;
+
+	printed = 0;
+	if (specifier == 'x')
+		printed += ft_putnbr_base(n, "0123456789abcdef");
+	if (specifier == 'X')
+		printed += ft_putnbr_base(n, "0123456789ABCDEF");
+	if (specifier == 'p')
+	{
+		if (n == 0)
+		{
+			printed += print_str("(nil)");
+			return (printed);
+		}
+		printed += print_str("0x");
+		printed += ft_putnbr_base(n, "0123456789abcdef");
+	}
+	return (printed);
 }
