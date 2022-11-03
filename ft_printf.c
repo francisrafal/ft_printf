@@ -6,7 +6,7 @@
 /*   By: frafal <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 12:59:34 by frafal            #+#    #+#             */
-/*   Updated: 2022/11/03 10:40:36 by frafal           ###   ########.fr       */
+/*   Updated: 2022/11/03 11:21:04 by frafal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,43 +15,46 @@
 // DELETE BEFORE SUBMISSION:
 #include <stdio.h>
 
+static int	parse_specifier(const char specifier, va_list ap)
+{
+	int		printed;	
+
+	printed = 0;
+	if (specifier == 's')
+		ft_putstr_fd(va_arg(ap, char *), 1);
+	else if (specifier == 'd')
+		ft_putnbr_fd(va_arg(ap, int), 1);
+	else if (specifier == 'c')
+		ft_putchar_fd(va_arg(ap, int), 1);
+	// Calculate printed characters
+	return (printed);
+}
+
 int	ft_printf(const char *format, ...)
 {
 	va_list	ap;
-	int		d;
-	char	c;
-	char	*s;
 	size_t	i;
-
-	while (format[i])
-	{
-		if (format[i] != '%')
-			ft_putchar_fd(format[i], 1);
-		i++;
-	}
+	int		printed;	
 
 	va_start(ap, format);
+	printed = 0;
 	i = 0;
 	while (format[i])
 	{
-		if (format[i] == 's')
+		if (format[i] != '%')
 		{
-			s = va_arg(ap, char *);
-			printf("string %s\n", s);
+			ft_putchar_fd(format[i], 1);
+			printed++;
 		}
-		else if (format[i] == 'd')
+		if (format[i] == '%')
 		{
-			d = va_arg(ap, int);
-			printf("int %d\n", d);
+			i++;
+			printed += parse_specifier(format[i], ap);	
 		}
-		else if (format[i] == 'c')
-		{
-			c = (char)va_arg(ap, int);
-			printf("char %c\n", c);
-		}
-		i++;	
+		i++;
 	}
 	va_end(ap);
+
 	// Allowed External Functions:
 	// malloc, free, write, va_start, va_arg, va_copy, va_end 
 	// Parse Variable Arguments
@@ -70,5 +73,5 @@ int	ft_printf(const char *format, ...)
 	// %X Prints a number in hexadecimal (base 16) uppercase format.
 	// %% Prints a percent sign
 	// Merge To Master Branch
-	return (0);
+	return (printed);
 }
