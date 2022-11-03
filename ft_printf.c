@@ -6,7 +6,7 @@
 /*   By: frafal <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 12:59:34 by frafal            #+#    #+#             */
-/*   Updated: 2022/11/01 16:15:26 by frafal           ###   ########.fr       */
+/*   Updated: 2022/11/03 10:40:36 by frafal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,13 @@ int	ft_printf(const char *format, ...)
 	char	c;
 	char	*s;
 	size_t	i;
+
+	while (format[i])
+	{
+		if (format[i] != '%')
+			ft_putchar_fd(format[i], 1);
+		i++;
+	}
 
 	va_start(ap, format);
 	i = 0;
@@ -53,5 +60,15 @@ int	ft_printf(const char *format, ...)
 	// Print to Stdout
 	// Count the Number of characters printed excluding null byte and return
 	// Error should return negative value
+	// %c Prints a single character.
+	// %s Prints a string (as defined by the common C convention).
+	// %p The void * pointer argument has to be printed in hexadecimal format.
+	// %d Prints a decimal (base 10) number.
+	// %i Prints an integer in base 10.
+	// %u Prints an unsigned decimal (base 10) number.
+	// %x Prints a number in hexadecimal (base 16) lowercase format.
+	// %X Prints a number in hexadecimal (base 16) uppercase format.
+	// %% Prints a percent sign
+	// Merge To Master Branch
 	return (0);
 }
