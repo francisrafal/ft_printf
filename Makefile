@@ -6,14 +6,14 @@
 #    By: frafal <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/03 20:59:46 by frafal            #+#    #+#              #
-#    Updated: 2022/11/03 18:58:04 by frafal           ###   ########.fr        #
+#    Updated: 2022/11/04 14:59:01 by frafal           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		:= libftprintf.a
 LIBFTDIR	:= libft
 LIBFT		:= libft.a
-CC			:= cc
+CC			:= clang
 FLAGS		:= -Wall -Wextra -Werror
 DEBUG		:=
 SRCS		:= ft_printf.c ft_printf_hex.c ft_printf_utils.c
@@ -39,14 +39,16 @@ all:		${NAME}
 
 clean:
 			${RM} *.o
+			make -C ${LIBFTDIR} clean
 			@ echo "Deleting $(NAME) objects"
 
 fclean:		clean
 			${RM} ${NAME}
+			make -C ${LIBFTDIR} fclean
 			@ echo "Deleting $(NAME) library"
 
 re:			fclean all
 
 test:		all
-			${CC} ${FLAGS} ${DEBUG} -o test main.c -L. -lftprintf -static
+			${CC} ${FLAGS} ${DEBUG} -fsanitize=address -o test main.c -L. -lftprintf
 			./test
