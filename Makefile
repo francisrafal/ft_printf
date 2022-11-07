@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: frafal <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/10/03 20:59:46 by frafal            #+#    #+#              #
-#    Updated: 2022/11/04 15:22:35 by frafal           ###   ########.fr        #
+#    Created: 2022/11/07 10:02:44 by frafal            #+#    #+#              #
+#    Updated: 2022/11/07 10:03:12 by frafal           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,5 +50,5 @@ fclean:		clean
 re:			fclean all
 
 test:		all
-			${CC} ${FLAGS} ${DEBUG} -fsanitize=address -o test main.c -L. -lftprintf
+			${CC} ${FLAGS} ${DEBUG} -o test main.c -L. -lftprintf
 			./test
