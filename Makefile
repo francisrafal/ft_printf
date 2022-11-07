@@ -5,19 +5,15 @@
 #                                                     +:+ +:+         +:+      #
 #    By: frafal <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/10/03 20:59:46 by frafal            #+#    #+#              #
-<<<<<<< HEAD
-#    Updated: 2022/11/04 14:59:01 by frafal           ###   ########.fr        #
-=======
-#    Updated: 2022/11/04 15:22:35 by frafal           ###   ########.fr        #
->>>>>>> master
+#    Created: 2022/11/07 10:02:44 by frafal            #+#    #+#              #
+#    Updated: 2022/11/07 10:03:12 by frafal           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		:= libftprintf.a
 LIBFTDIR	:= libft
 LIBFT		:= libft.a
-CC			:= clang
+CC			:= cc
 FLAGS		:= -Wall -Wextra -Werror
 DEBUG		:=
 SRCS		:= ft_printf.c ft_printf_hex.c ft_printf_utils.c
@@ -54,5 +50,5 @@ fclean:		clean
 re:			fclean all
 
 test:		all
-			${CC} ${FLAGS} ${DEBUG} -fsanitize=address -o test main.c -L. -lftprintf
+			${CC} ${FLAGS} ${DEBUG} -o test main.c -L. -lftprintf
 			./test
